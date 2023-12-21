@@ -1,0 +1,43 @@
+{
+  "name": "@chocolateish/openelectrical",
+  "version": "0.0.1",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev:pages": "vite -m pages",
+    "dev:tests": "vite -m test",
+    "build:pages": "tsc && vite build -m pages",
+    "build:tests": "tsc && vite build -m tests",
+    "serve:dev": "vite preview --mode pages",
+    "serve:tests": "vite preview --mode testServe",
+    "test": "npm run build:tests && start-server-and-test serve:tests http://localhost:999 'cypress run'",
+    "watch": "start-server-and-test dev:tests http://localhost:999 'cypress open --e2e --browser edge'",
+    "prepublishOnly": "npm run test && npm run build:lib && npm run build:pages"
+  },
+  "devDependencies": {
+    "cypress": "^13.4.0",
+    "cypress-vite": "^1.4.2",
+    "start-server-and-test": "^2.0.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vite-plugin-dts": "^3.6.3",
+    "vite-plugin-libcss": "^1.1.1"
+  },
+  "author": "chocolateandmilkwin",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chocolateish/OpenElectrical.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Chocolateish/OpenElectrical/issues"
+  },
+  "homepage": "https://github.com/Chocolateish/OpenElectrical#readme",
+  "dependencies": {}
+}
